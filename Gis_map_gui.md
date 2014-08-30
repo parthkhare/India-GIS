@@ -156,6 +156,33 @@ pars <- as.list(match.call()[-1])   # To call by variable name
  gc()
 }
 #===============================================================================
+
+
+# Map function call
+#===============================================================================
+rm(list =ls())
+
+# Data Import
+# ----------------
+load("D:/Indicus/Projects/Maps/Data/rur_som_dt.RData")
+dim(dft)
+dft$som <- as.factor(dft$som) # Convert the categorical class
+
+# Call function
+# -----------------
+source("D:/Indicus/Projects/Maps/Codes/india_map_gui_ggplot.R")
+
+# GUI Pop up based controls
+# --------------
+system.time(
+Ind.gis(ds = dft,  cuts = 5)
+)
+
+Ind.gis(ds = dft, var = , cuts = 10)
+
+# Categorical Level
+# --------------
+Ind.gis(ds = dft, var = "som", cuts = 10)
+Ind.gis(ds = dft, var = "IS_SC", cuts = 10)
+#===============================================================================
 #FIN
-
-
